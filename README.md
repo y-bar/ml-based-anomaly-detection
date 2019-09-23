@@ -1,5 +1,5 @@
-# sr
-Spectral Residual
+# spectral-residual
+Spectral Residual as Anomaly Detection
 
 ## Introduction
 The algorithm is based on the following paper
