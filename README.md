@@ -14,8 +14,8 @@ Example jupyter notebooks are located [here](https://github.com/yoshinaga0106/sr
 
 ## Installation
 ```bash
-$ pip install sr
+$ pip install sranodec
 ```
 
 ## Notes
-hoge
+I also want to add SR-CNN.
