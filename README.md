@@ -1,7 +1,8 @@
 # spectral-residual
-Spectral Residual as Anomaly Detection
 [![Travis-CI Build
 Status](https://travis-ci.org/y-bar/spectral-residual.svg?branch=master)](https://travis-ci.com/y-bar/spectral-residual)
+
+Spectral Residual as Anomaly Detection
 
 ## Introduction
 The algorithm is based on the following paper
