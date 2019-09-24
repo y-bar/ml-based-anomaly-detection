@@ -6,4 +6,3 @@ __version__ = "0.0.1"
 
 # package
 __all__ = ["Silency"]
-
