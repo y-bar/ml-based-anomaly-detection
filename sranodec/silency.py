@@ -1,10 +1,10 @@
 import numpy as np
 from scipy import stats
-from sranodec.util import series_filter, marge_series
+
+from sranodec.util import marge_series, series_filter
 
 
 class Silency(object):
-
     def __init__(self, amp_window_size, series_window_size, score_window_size):
         self.amp_window_size = amp_window_size
         self.series_window_size = series_window_size
@@ -19,7 +19,7 @@ class Silency(object):
         """
 
         freq = np.fft.fft(values)
-        mag = np.sqrt(freq.real**2 + freq.imag**2)
+        mag = np.sqrt(freq.real ** 2 + freq.imag ** 2)
         spectral_residual = np.exp(np.log(mag) - series_filter(np.log(mag), self.amp_window_size))
 
         freq.real = freq.real * spectral_residual / mag
@@ -30,7 +30,7 @@ class Silency(object):
 
     def transform_spectral_residual(self, values):
         silency_map = self.transform_silency_map(values)
-        spectral_residual = np.sqrt(silency_map.real**2 + silency_map.imag**2)
+        spectral_residual = np.sqrt(silency_map.real ** 2 + silency_map.imag ** 2)
         return spectral_residual
 
     def generate_anomaly_score(self, values, type="avg"):
@@ -42,7 +42,7 @@ class Silency(object):
         """
 
         extended_series = marge_series(values, self.series_window_size, self.series_window_size)
-        mag = self.transform_spectral_residual(extended_series)[:len(values)]
+        mag = self.transform_spectral_residual(extended_series)[: len(values)]
 
         if type == "avg":
             ave_filter = series_filter(mag, self.score_window_size)
@@ -51,8 +51,7 @@ class Silency(object):
             ave_filter = series_filter(mag, self.score_window_size)
             score = np.abs(mag - ave_filter) / ave_filter
         elif type == "chisq":
-            score = stats.chi2.cdf( (mag - np.mean(mag))**2 / np.var(mag), df=1)
+            score = stats.chi2.cdf((mag - np.mean(mag)) ** 2 / np.var(mag), df=1)
         else:
             raise ValueError("No type!")
         return score
-

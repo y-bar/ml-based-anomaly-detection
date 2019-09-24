@@ -7,7 +7,7 @@ def series_filter(values, kernel_size=3):
     As math formula, see https://docs.opencv.org/2.4/modules/imgproc/doc/filtering.html.
     :param values:
     :param kernel_size:
-    :return:
+    :return: The list of filtered average
     """
     filter_values = np.cumsum(values, dtype=float)
 
@@ -15,7 +15,7 @@ def series_filter(values, kernel_size=3):
     filter_values[kernel_size:] = filter_values[kernel_size:] / kernel_size
 
     for i in range(1, kernel_size):
-        filter_values[i] /= (i + 1)
+        filter_values[i] /= i + 1
 
     return filter_values
 
