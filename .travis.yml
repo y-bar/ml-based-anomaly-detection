@@ -7,5 +7,5 @@ install:
   - pipenv install --dev
 script:
   - pytest tests
-  - black --check bocd/ tests/
+  - black --check sranodec/ tests/
   - isort -rc --check-only -vb sranodec/*.py tests/*.py
