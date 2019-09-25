@@ -11,6 +11,8 @@ isort = "==4.3.21"
 ipython = "==7.8.0"
 jupyter = "==1.0.0"
 jupytext = "==1.2.4"
+wheel = "==0.33.6"
+twine = "==2.0.0"
 
 [packages]
 numpy = "==1.17.2"
