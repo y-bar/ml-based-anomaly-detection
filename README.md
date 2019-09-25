@@ -2,7 +2,7 @@
 [![Travis-CI Build
 Status](https://travis-ci.org/y-bar/spectral-residual.svg?branch=master)](https://travis-ci.com/y-bar/spectral-residual)
 
-Spectral Residual as Anomaly Detection
+Anomaly Detection by Spectral Residual
 
 ## Introduction
 The algorithm is based on the following paper
@@ -21,4 +21,4 @@ $ pip install sranodec
 ```
 
 ## Notes
-I also want to add SR-CNN.
+I will also add SR-CNN and other methods.
